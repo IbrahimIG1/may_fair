@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:may_fair/core/di/dependencey_injection.dart.dart';
 import 'package:may_fair/core/router/routes.dart';
+import 'package:may_fair/features/screens/home/home_screen.dart';
 import 'package:may_fair/features/screens/login/cubit/cubit/login_cubit.dart';
 import 'package:may_fair/features/screens/login/login_screen.dart';
 
@@ -10,17 +11,17 @@ class AppRouter {
     print('generateRouter start');
     switch (settings.name) {
       //* home
-      // case Routes.homeScreen:
-      //   return MaterialPageRoute(
-      //     builder: (context) => HomeScreen(),
-      //   );
+      case Routes.homeScreen:
+        return MaterialPageRoute(
+          builder: (context) => HomeScreen(),
+        );
 
       //* login
       case Routes.loginScreen:
         return MaterialPageRoute(
           builder: (context) => BlocProvider(
             create: (context) => getIt<LoginCubit>(),
-            child: LoginScreen(),
+            child: const LoginScreen(),
           ),
         );
 
