@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "444760830252",
+    "project_id": "may-fair-17051",
+    "storage_bucket": "may-fair-17051.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:444760830252:android:d7b0fc2d30e741c86ebc89",
+        "android_client_info": {
+          "package_name": "com.example.may_fair"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTcGdoqI_AJM_UYosg0d1LF2AbM6gGL9w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
