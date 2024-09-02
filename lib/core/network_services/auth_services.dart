@@ -1,31 +1,40 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:may_fair/core/helper/extensions.dart';
+import 'package:may_fair/core/helper/shared_prefrence.dart';
 import 'package:may_fair/core/network_services/firebase_services.dart';
+import 'package:may_fair/core/router/routes.dart';
 
 abstract class AuthNetworkeServices {
-  Future<void> googleSignIn();
-  Future<void> loginWithUserAndPassword(String email, String password);
+  Future<void> googleSignIn(BuildContext context);
+  Future<void> loginWithUserAndPassword(
+      String email, String password, BuildContext context);
   // Future<void> signOut();
 }
 
 class AuthNetworkServicesImpl implements AuthNetworkeServices {
   final FirebaseFactory firebaseFactory;
-  AuthNetworkServicesImpl(this.firebaseFactory);
+  final SharedPrefImpl sharedPreferences;
+  AuthNetworkServicesImpl(this.firebaseFactory, this.sharedPreferences);
 
   @override
-  Future<void> loginWithUserAndPassword(String email, String password) async {
+  Future<void> loginWithUserAndPassword(
+      String email, String password, BuildContext context) async {
     // SharedPref sharedPref = SharedPrefImpl();
     FirebaseAuth firebaseAuth = firebaseFactory.getFirebaseAuth();
     await firebaseAuth
         .signInWithEmailAndPassword(email: email, password: password)
         .then((value) {
+      context.pushReplacementNamed(Routes.homeScreen);
       print(value.user!.uid);
-      // sharedPref.setSecureString('user_id', value.user!.uid);
+
+      sharedPreferences.setString('UserUID', value.user?.uid);
     });
   }
 
   @override
-  Future<void> googleSignIn() async {
+  Future<void> googleSignIn(BuildContext context) async {
     FirebaseAuth auth = firebaseFactory.getFirebaseAuth();
     final GoogleSignIn googleSignIn = GoogleSignIn();
     try {
@@ -36,7 +45,12 @@ class AuthNetworkServicesImpl implements AuthNetworkeServices {
         accessToken: googleAuth.accessToken,
         idToken: googleAuth.idToken,
       );
-      await auth.signInWithCredential(credential);
+
+      await auth.signInWithCredential(credential).then((value) {
+        context.pushReplacementNamed(Routes.homeScreen);
+        sharedPreferences.setString('UserUID', value.user?.uid);
+      });
+      // User? getUser = auth.currentUser!;
     } catch (e) {
       print("Exeption in login with google >>> $e ");
     }
