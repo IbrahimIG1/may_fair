@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:may_fair/core/repos/login_repo.dart';
-import 'package:may_fair/features/screens/login/cubit/cubit/login_state.dart';
+import 'package:may_fair/features/screens/login/cubit/login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
   LoginRepo loginRepo;
@@ -13,6 +13,8 @@ class LoginCubit extends Cubit<LoginState> {
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  bool isObscure = true;
+
   void login(BuildContext context) {
     loginRepo.login(
         email: emailController.text,
@@ -30,5 +32,10 @@ class LoginCubit extends Cubit<LoginState> {
       SnackBar(content: Text('Error in Login with google method $e'));
       emit(ErrorStateLogin());
     }
+  }
+
+  void passwordVisibility() {
+    isObscure = !isObscure;
+    emit(ObscureStateLogin());
   }
 }
