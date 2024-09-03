@@ -3,7 +3,7 @@ import 'package:may_fair/core/helper/shared_prefrence.dart';
 import 'package:may_fair/core/network_services/auth_services.dart';
 import 'package:may_fair/core/network_services/firebase_services.dart';
 import 'package:may_fair/core/repos/login_repo.dart';
-import 'package:may_fair/features/screens/login/cubit/cubit/login_cubit.dart';
+import 'package:may_fair/features/screens/login/cubit/login_cubit.dart';
 
 
 final getIt = GetIt.instance;

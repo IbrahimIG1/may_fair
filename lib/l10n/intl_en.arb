@@ -1,0 +1,12 @@
+{
+    "title": "MayFairll Companey",
+    "register": "Register",
+    "login": "Login",
+    "user_name": "user name",
+    "email": "Email",
+    "password": "password",
+    "please_enter_user_name": "please enter the user name",
+    "please_enter_email": "please enter a valid email",
+    "please_enter_phone": "please enter a valid phone",
+    "please_enter_password": "please enter  a valid password"
+}

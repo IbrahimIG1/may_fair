@@ -1,6 +1,6 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:may_fair/core/constants/constants.dart';
 import 'package:may_fair/core/di/dependencey_injection.dart.dart';
 import 'package:may_fair/core/helper/extensions.dart';
@@ -8,7 +8,7 @@ import 'package:may_fair/core/helper/shared_prefrence.dart';
 import 'package:may_fair/core/router/app_router.dart';
 import 'package:may_fair/core/router/routes.dart';
 import 'package:may_fair/features/screens/home/home_screen.dart';
-import 'package:may_fair/features/screens/login/login_screen.dart';
+import 'package:may_fair/generated/l10n.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,19 +21,32 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      initialRoute:  isUserLogin! ? Routes.homeScreen :Routes.loginScreen ,
-      onGenerateRoute: AppRouter().generateRouter,
-      home:  HomeScreen(),
-    );
+    return ScreenUtilInit(
+        designSize: const Size(360, 690),
+        minTextAdapt: true,
+        splitScreenMode: true,
+        builder: (context, child) {
+          return MaterialApp(
+            locale: const Locale('en'),
+            localizationsDelegates: const[
+                S.delegate,
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: S.delegate.supportedLocales,
+            title: 'Flutter Demo',
+            theme: ThemeData(
+              colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+              useMaterial3: true,
+            ),
+            initialRoute: isUserLogin! ? Routes.homeScreen : Routes.loginScreen,
+            onGenerateRoute: AppRouter().generateRouter,
+            home: HomeScreen(),
+          );
+        });
   }
 }
 

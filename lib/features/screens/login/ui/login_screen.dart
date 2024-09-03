@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:may_fair/core/constants/constants.dart';
-import 'package:may_fair/features/screens/login/cubit/cubit/login_cubit.dart';
-import 'package:may_fair/features/screens/login/cubit/cubit/login_state.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:may_fair/core/helper/spacer_helper.dart';
+import 'package:may_fair/core/widgets/app_text_feild.dart';
+import 'package:may_fair/features/screens/login/cubit/login_cubit.dart';
+import 'package:may_fair/features/screens/login/cubit/login_state.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -20,15 +22,28 @@ class LoginScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    TextField(
-                      controller: loginCubit.emailController,
-                      decoration: const InputDecoration(labelText: 'Email'),
+                  children: [
+                    Container(
+                      color: Colors.red,
+                      height: 100.h,
+                      width: 100.w,
+                      child: Icon(
+                        Icons.place_rounded,
+                        size: 100,
+                      ),
                     ),
-                    TextField(
-                      controller: loginCubit.passwordController,
-                      decoration: const InputDecoration(labelText: 'Password'),
-                      obscureText: true,
+                    verticalSpace(20),
+                    AppTextFormFeild(hintText: "Email", validator: (value) {}),
+                    verticalSpace(10),
+                    AppTextFormFeild(
+                      hintText: "Password",
+                      validator: (value) {},
+                      isObscure: loginCubit.isObscure,
+                      suffixIcon: IconButton(
+                          onPressed: () {
+                            loginCubit.passwordVisibility();
+                          },
+                          icon: Icon(loginCubit.isObscure ? Icons.visibility_off:Icons.visibility)),
                     ),
                     const SizedBox(height: 20),
                     ElevatedButton(
@@ -43,14 +58,6 @@ class LoginScreen extends StatelessWidget {
                         loginCubit.loginWithGoogle(context);
                       },
                       child: const Text('Login with Google'),
-                    ),
-                    ElevatedButton(
-                      onPressed: () {},
-                      child: Text(userUId),
-                    ),
-                    ElevatedButton(
-                      onPressed: () {},
-                      child: Text(isUserLogin.toString()),
                     ),
                   ],
                 ),
