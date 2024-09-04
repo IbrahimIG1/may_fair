@@ -6,7 +6,9 @@ class LoadingStateLogin extends LoginState {}
 
 class SuccessStateLogin extends LoginState {}
 
-class ErrorStateLogin extends LoginState {}
+class ErrorStateLogin extends LoginState {
+  
+}
 
 class ObscureStateLogin extends LoginState {}
-
+class ChangeBrderColorStateLogin extends LoginState {}

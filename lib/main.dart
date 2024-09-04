@@ -7,6 +7,7 @@ import 'package:may_fair/core/helper/extensions.dart';
 import 'package:may_fair/core/helper/shared_prefrence.dart';
 import 'package:may_fair/core/router/app_router.dart';
 import 'package:may_fair/core/router/routes.dart';
+import 'package:may_fair/core/theme/main_theme.dart';
 import 'package:may_fair/features/screens/home/home_screen.dart';
 import 'package:may_fair/generated/l10n.dart';
 
@@ -14,7 +15,6 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await setUp();
   await chekUserLogin();
-
   runApp(const MyApp());
 }
 
@@ -30,18 +30,15 @@ class MyApp extends StatelessWidget {
         builder: (context, child) {
           return MaterialApp(
             locale: const Locale('en'),
-            localizationsDelegates: const[
-                S.delegate,
-                GlobalMaterialLocalizations.delegate,
-                GlobalWidgetsLocalizations.delegate,
-                GlobalCupertinoLocalizations.delegate,
+            localizationsDelegates: const [
+              S.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
             ],
             supportedLocales: S.delegate.supportedLocales,
             title: 'Flutter Demo',
-            theme: ThemeData(
-              colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-              useMaterial3: true,
-            ),
+            theme: appTheme(),
             initialRoute: isUserLogin! ? Routes.homeScreen : Routes.loginScreen,
             onGenerateRoute: AppRouter().generateRouter,
             home: HomeScreen(),

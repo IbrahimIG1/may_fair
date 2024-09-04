@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:may_fair/firebase_options.dart';
 
 abstract class FirebaseFactory {
   Future<void> initFirebase();
@@ -16,15 +17,16 @@ class FirebaseFactoryImpl implements FirebaseFactory {
   @override
   Future<void> initFirebase() async {
     await Firebase.initializeApp(
-      options: const FirebaseOptions(
-        apiKey: "AIzaSyAnpaYRtcz7zobom77EnsO2ZfhgBueTErs",
-        authDomain: "may-fair-17051.firebaseapp.com",
-        projectId: "may-fair-17051",
-        storageBucket: "may-fair-17051.appspot.com",
-        messagingSenderId: "444760830252",
-        appId: "1:444760830252:web:c5c055e0f5f114776ebc89",
-        measurementId: "G-ERJCJJWVC2",
-      ),
+      options: DefaultFirebaseOptions.currentPlatform,
+      // const FirebaseOptions(
+      //   apiKey: "AIzaSyAnpaYRtcz7zobom77EnsO2ZfhgBueTErs",
+      //   authDomain: "may-fair-17051.firebaseapp.com",
+      //   projectId: "may-fair-17051",
+      //   storageBucket: "may-fair-17051.appspot.com",
+      //   messagingSenderId: "444760830252",
+      //   appId: "1:444760830252:web:c5c055e0f5f114776ebc89",
+      //   measurementId: "G-ERJCJJWVC2",
+      // ),
     ).then((value) {
       print("init Firebase");
     });

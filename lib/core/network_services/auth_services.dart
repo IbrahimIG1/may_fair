@@ -10,6 +10,8 @@ abstract class AuthNetworkeServices {
   Future<void> googleSignIn(BuildContext context);
   Future<void> loginWithUserAndPassword(
       String email, String password, BuildContext context);
+  Future<void> registerWithUserAndPassword(
+      String email, String password, BuildContext context);
   // Future<void> signOut();
 }
 
@@ -27,8 +29,6 @@ class AuthNetworkServicesImpl implements AuthNetworkeServices {
         .signInWithEmailAndPassword(email: email, password: password)
         .then((value) {
       context.pushReplacementNamed(Routes.homeScreen);
-      print(value.user!.uid);
-
       sharedPreferences.setString('UserUID', value.user?.uid);
     });
   }
@@ -54,5 +54,20 @@ class AuthNetworkServicesImpl implements AuthNetworkeServices {
     } catch (e) {
       print("Exeption in login with google >>> $e ");
     }
+  }
+
+  @override
+  Future<void> registerWithUserAndPassword(
+      String email, String password, BuildContext context) async {
+    FirebaseAuth auth = firebaseFactory.getFirebaseAuth();
+    await auth
+        .createUserWithEmailAndPassword(email: email, password: password)
+        .then((value) {
+      print(' in Function createUserWithEmailAndPassword');
+      context.pushReplacementNamed(Routes.homeScreen);
+      print(value.user!.uid);
+
+      sharedPreferences.setString('UserUID', value.user?.uid);
+    });
   }
 }

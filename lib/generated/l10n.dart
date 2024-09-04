@@ -60,21 +60,51 @@ class S {
     );
   }
 
-  /// `Register`
+  /// `Sign Up`
   String get register {
     return Intl.message(
-      'Register',
+      'Sign Up',
       name: 'register',
       desc: '',
       args: [],
     );
   }
 
-  /// `Login`
+  /// `Sign In`
   String get login {
     return Intl.message(
-      'Login',
+      'Sign In',
       name: 'login',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Or Sign in with`
+  String get or_login_with {
+    return Intl.message(
+      'Or Sign in with',
+      name: 'or_login_with',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `login with google account`
+  String get login_with_google {
+    return Intl.message(
+      'login with google account',
+      name: 'login_with_google',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Don't have an account? `
+  String get not_have_account {
+    return Intl.message(
+      'Don\'t have an account? ',
+      name: 'not_have_account',
       desc: '',
       args: [],
     );
@@ -85,6 +115,16 @@ class S {
     return Intl.message(
       'user name',
       name: 'user_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `phone`
+  String get phone {
+    return Intl.message(
+      'phone',
+      name: 'phone',
       desc: '',
       args: [],
     );
@@ -145,6 +185,66 @@ class S {
     return Intl.message(
       'please enter  a valid password',
       name: 'please_enter_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `welcome`
+  String get welcome {
+    return Intl.message(
+      'welcome',
+      name: 'welcome',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Discover your next adventure with us! we're here to make your travel dreams come true. Let's explore the world together!`
+  String get welcome_login_text {
+    return Intl.message(
+      'Discover your next adventure with us! we\'re here to make your travel dreams come true. Let\'s explore the world together!',
+      name: 'welcome_login_text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your gateway to the world's most amazing destinations. Let's explore together!`
+  String get welcome_register_text {
+    return Intl.message(
+      'Your gateway to the world\'s most amazing destinations. Let\'s explore together!',
+      name: 'welcome_register_text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Driver`
+  String get driver {
+    return Intl.message(
+      'Driver',
+      name: 'driver',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `customer`
+  String get customer {
+    return Intl.message(
+      'customer',
+      name: 'customer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Type Your Message`
+  String get type_your_message {
+    return Intl.message(
+      'Type Your Message',
+      name: 'type_your_message',
       desc: '',
       args: [],
     );
