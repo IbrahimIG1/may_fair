@@ -21,11 +21,13 @@ class AuthNetworkServicesImpl implements AuthNetworkeServices {
   @override
   Future<void> loginWithUserAndPassword(
       String email, String password, BuildContext context) async {
+          print(' start Function signInWithEmailAndPassword');
     // SharedPref sharedPref = SharedPrefImpl();
     FirebaseAuth firebaseAuth = firebaseFactory.getFirebaseAuth();
     await firebaseAuth
         .signInWithEmailAndPassword(email: email, password: password)
         .then((value) {
+          print(' in Function signInWithEmailAndPassword');
       context.pushReplacementNamed(Routes.homeScreen);
       print(value.user!.uid);
 

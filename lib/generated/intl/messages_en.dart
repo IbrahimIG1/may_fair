@@ -22,8 +22,16 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "customer": MessageLookupByLibrary.simpleMessage("customer"),
+        "driver": MessageLookupByLibrary.simpleMessage("Driver"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
-        "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "login": MessageLookupByLibrary.simpleMessage("Sign In"),
+        "login_with_google":
+            MessageLookupByLibrary.simpleMessage("login with google account"),
+        "not_have_account":
+            MessageLookupByLibrary.simpleMessage("Don\'t have an account? "),
+        "or_login_with":
+            MessageLookupByLibrary.simpleMessage("Or Sign in with"),
         "password": MessageLookupByLibrary.simpleMessage("password"),
         "please_enter_email":
             MessageLookupByLibrary.simpleMessage("please enter a valid email"),
@@ -33,8 +41,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("please enter a valid phone"),
         "please_enter_user_name":
             MessageLookupByLibrary.simpleMessage("please enter the user name"),
-        "register": MessageLookupByLibrary.simpleMessage("Register"),
+        "register": MessageLookupByLibrary.simpleMessage("Sign Up"),
         "title": MessageLookupByLibrary.simpleMessage("MayFairll Companey"),
-        "user_name": MessageLookupByLibrary.simpleMessage("user name")
+        "user_name": MessageLookupByLibrary.simpleMessage("user name"),
+        "welcome": MessageLookupByLibrary.simpleMessage("welcome"),
+        "welcome_text": MessageLookupByLibrary.simpleMessage(
+            "Discover your next adventure with us! we\'re here to make your travel dreams come true. Let\'s explore the world together!")
       };
 }

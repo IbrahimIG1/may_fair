@@ -4,6 +4,7 @@ import 'package:may_fair/core/di/dependencey_injection.dart.dart';
 import 'package:may_fair/core/router/routes.dart';
 import 'package:may_fair/features/screens/home/home_screen.dart';
 import 'package:may_fair/features/screens/login/cubit/login_cubit.dart';
+import 'package:may_fair/features/screens/login/ui/ai_ui.dart';
 import 'package:may_fair/features/screens/login/ui/login_screen.dart';
 
 class AppRouter {

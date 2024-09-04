@@ -10,6 +10,6 @@ class LoginRepo {
   }
 
   Future<void> login({required String email, required String password,required BuildContext context}) async {
-    _loginNetworkService.loginWithUserAndPassword(email, password,context);
+  _loginNetworkService.loginWithUserAndPassword(email, password,context);
   }
 }
