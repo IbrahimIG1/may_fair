@@ -2,7 +2,9 @@ import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:may_fair/core/helper/extensions.dart';
 import 'package:may_fair/core/helper/spacer_helper.dart';
+import 'package:may_fair/core/router/routes.dart';
 import 'package:may_fair/core/theme/text_styles.dart';
 import 'package:may_fair/core/widgets/app_button.dart';
 import 'package:may_fair/core/widgets/snack_bar.dart';
@@ -65,7 +67,7 @@ class LoginScreen extends StatelessWidget {
                         ),
                         verticalSpace(10),
                         Text(
-                          S.of(context).welcome_text,
+                          S.of(context).welcome_login_text,
                           style: TextStyles.font14MediumWhite
                               .copyWith(height: 1.7),
                         ),
@@ -123,7 +125,13 @@ class LoginScreen extends StatelessWidget {
                               }),
 
                         verticalSpace(20),
-                        if (loginCubit.isCustomer) const NotHaveAccount()
+                        if (loginCubit.isCustomer)
+                          NotHaveAccount(
+                            onTap: () {
+                              context
+                                  .pushReplacementNamed(Routes.registerScreen);
+                            },
+                          )
                       ],
                     ),
                   ),

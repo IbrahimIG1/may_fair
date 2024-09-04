@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:may_fair/core/theme/color.dart';
 import 'package:may_fair/core/theme/text_styles.dart';
@@ -22,6 +23,7 @@ class IsDriverButton extends StatelessWidget {
         onTap();
       },
       style: ButtonStyle(
+        minimumSize: WidgetStateProperty.all(Size.fromHeight(50.h)),
         // animationDuration: Duration(milliseconds: 1),
         backgroundColor: WidgetStateProperty.all(Colors.transparent),
         textStyle: WidgetStateProperty.all(TextStyles.font14YellowMedium),

@@ -120,6 +120,16 @@ class S {
     );
   }
 
+  /// `phone`
+  String get phone {
+    return Intl.message(
+      'phone',
+      name: 'phone',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Email`
   String get email {
     return Intl.message(
@@ -191,10 +201,20 @@ class S {
   }
 
   /// `Discover your next adventure with us! we're here to make your travel dreams come true. Let's explore the world together!`
-  String get welcome_text {
+  String get welcome_login_text {
     return Intl.message(
       'Discover your next adventure with us! we\'re here to make your travel dreams come true. Let\'s explore the world together!',
-      name: 'welcome_text',
+      name: 'welcome_login_text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your gateway to the world's most amazing destinations. Let's explore together!`
+  String get welcome_register_text {
+    return Intl.message(
+      'Your gateway to the world\'s most amazing destinations. Let\'s explore together!',
+      name: 'welcome_register_text',
       desc: '',
       args: [],
     );
@@ -215,6 +235,16 @@ class S {
     return Intl.message(
       'customer',
       name: 'customer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Type Your Message`
+  String get type_your_message {
+    return Intl.message(
+      'Type Your Message',
+      name: 'type_your_message',
       desc: '',
       args: [],
     );

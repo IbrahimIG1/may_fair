@@ -4,8 +4,9 @@ import 'package:may_fair/core/di/dependencey_injection.dart.dart';
 import 'package:may_fair/core/router/routes.dart';
 import 'package:may_fair/features/screens/home/home_screen.dart';
 import 'package:may_fair/features/screens/login/cubit/login_cubit.dart';
-import 'package:may_fair/features/screens/login/ui/ai_ui.dart';
 import 'package:may_fair/features/screens/login/ui/login_screen.dart';
+import 'package:may_fair/features/screens/register/cubit/register_cubit.dart';
+import 'package:may_fair/features/screens/register/ui/register_screen.dart';
 
 class AppRouter {
   Route generateRouter(RouteSettings settings) {
@@ -25,7 +26,14 @@ class AppRouter {
             child: const LoginScreen(),
           ),
         );
-
+//* register
+      case Routes.registerScreen:
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => getIt<RegisterCubit>(),
+            child: const RegisterScreen(),
+          ),
+        );
       default:
         return MaterialPageRoute(
           builder: (context) => const Scaffold(

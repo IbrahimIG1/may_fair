@@ -33,6 +33,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "or_login_with":
             MessageLookupByLibrary.simpleMessage("Or Sign in with"),
         "password": MessageLookupByLibrary.simpleMessage("password"),
+        "phone": MessageLookupByLibrary.simpleMessage("phone"),
         "please_enter_email":
             MessageLookupByLibrary.simpleMessage("please enter a valid email"),
         "please_enter_password": MessageLookupByLibrary.simpleMessage(
@@ -43,9 +44,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("please enter the user name"),
         "register": MessageLookupByLibrary.simpleMessage("Sign Up"),
         "title": MessageLookupByLibrary.simpleMessage("MayFairll Companey"),
+        "type_your_message":
+            MessageLookupByLibrary.simpleMessage("Type Your Message"),
         "user_name": MessageLookupByLibrary.simpleMessage("user name"),
         "welcome": MessageLookupByLibrary.simpleMessage("welcome"),
-        "welcome_text": MessageLookupByLibrary.simpleMessage(
-            "Discover your next adventure with us! we\'re here to make your travel dreams come true. Let\'s explore the world together!")
+        "welcome_login_text": MessageLookupByLibrary.simpleMessage(
+            "Discover your next adventure with us! we\'re here to make your travel dreams come true. Let\'s explore the world together!"),
+        "welcome_register_text": MessageLookupByLibrary.simpleMessage(
+            "Your gateway to the world\'s most amazing destinations. Let\'s explore together!")
       };
 }

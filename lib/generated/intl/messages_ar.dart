@@ -33,6 +33,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "or_login_with":
             MessageLookupByLibrary.simpleMessage("أو سجل الدخول باستخدام"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة السر"),
+        "phone": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
         "please_enter_email": MessageLookupByLibrary.simpleMessage(
             "من فضلك ادخل البريد الالكتروني بشكل صحيح"),
         "please_enter_password": MessageLookupByLibrary.simpleMessage(
@@ -43,9 +44,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("من فضلك ادخل اسم المستخدم"),
         "register": MessageLookupByLibrary.simpleMessage("تسجيل حساب"),
         "title": MessageLookupByLibrary.simpleMessage("شركة سياحة"),
+        "type_your_message":
+            MessageLookupByLibrary.simpleMessage("أكتب رسالتك هنا"),
         "user_name": MessageLookupByLibrary.simpleMessage("اسم المستخدم"),
         "welcome": MessageLookupByLibrary.simpleMessage("مرحبا"),
-        "welcome_text": MessageLookupByLibrary.simpleMessage(
-            "اكتشف مغامرتك القادمة معنا! نحن هنا لتحقيق أحلام سفرك. لنستكشف العالم معًا!")
+        "welcome_login_text": MessageLookupByLibrary.simpleMessage(
+            "اكتشف مغامرتك القادمة معنا! نحن هنا لتحقيق أحلام سفرك. لنستكشف العالم معًا!"),
+        "welcome_register_text": MessageLookupByLibrary.simpleMessage(
+            "انطلقوا معنا في رحلات لا تُنسى - بوابتكم إلى أجمل الوجهات حول العالم. لنستكشف معًا!")
       };
 }
