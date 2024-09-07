@@ -35,7 +35,6 @@ class AppTextButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      
       style: ButtonStyle(
           animationDuration: Duration(seconds: 2),
           shape: WidgetStateProperty.all<RoundedRectangleBorder>(

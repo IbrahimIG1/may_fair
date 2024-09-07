@@ -22,6 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "cancle": MessageLookupByLibrary.simpleMessage("الغاء"),
         "customer": MessageLookupByLibrary.simpleMessage("عميل"),
         "driver": MessageLookupByLibrary.simpleMessage("سائق"),
         "email": MessageLookupByLibrary.simpleMessage("البريد الالكتروني"),

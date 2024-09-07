@@ -249,6 +249,16 @@ class S {
       args: [],
     );
   }
+
+  /// `cancle`
+  String get cancle {
+    return Intl.message(
+      'cancle',
+      name: 'cancle',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

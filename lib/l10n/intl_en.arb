@@ -18,5 +18,6 @@
     "welcome_register_text": "Your gateway to the world's most amazing destinations. Let's explore together!",
     "driver" : "Driver",
     "customer" : "customer",
-    "type_your_message" : "Type Your Message"
+    "type_your_message" : "Type Your Message",
+    "cancle" : "cancle"
 }

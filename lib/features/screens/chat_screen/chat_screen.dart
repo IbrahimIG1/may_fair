@@ -5,7 +5,9 @@ import 'package:may_fair/core/theme/text_styles.dart';
 import 'package:may_fair/core/widgets/app_text_feild.dart';
 import 'package:may_fair/generated/l10n.dart';
 
-class HomeScreen extends StatelessWidget {
+class ChatScreen extends StatelessWidget {
+  const ChatScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
