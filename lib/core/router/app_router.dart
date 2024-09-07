@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:may_fair/core/di/dependencey_injection.dart.dart';
 import 'package:may_fair/core/router/routes.dart';
-import 'package:may_fair/features/screens/home/home_screen.dart';
+import 'package:may_fair/features/screens/chat_screen/chat_screen.dart';
+import 'package:may_fair/features/screens/home/cubit/home_cubit.dart';
+import 'package:may_fair/features/screens/home/ui/home_screen.dart';
 import 'package:may_fair/features/screens/login/cubit/login_cubit.dart';
 import 'package:may_fair/features/screens/login/ui/login_screen.dart';
 import 'package:may_fair/features/screens/register/cubit/register_cubit.dart';
@@ -15,7 +17,15 @@ class AppRouter {
       //* home
       case Routes.homeScreen:
         return MaterialPageRoute(
-          builder: (context) => HomeScreen(),
+          builder: (context) => BlocProvider(
+            create: (context) => HomeCubit(),
+            child: HomeScreen(),
+          ),
+        );
+      //* home
+      case Routes.chatScreen:
+        return MaterialPageRoute(
+          builder: (context) => ChatScreen(),
         );
 
       //* login

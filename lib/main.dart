@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:may_fair/core/constants/constants.dart';
@@ -8,7 +9,9 @@ import 'package:may_fair/core/helper/shared_prefrence.dart';
 import 'package:may_fair/core/router/app_router.dart';
 import 'package:may_fair/core/router/routes.dart';
 import 'package:may_fair/core/theme/main_theme.dart';
-import 'package:may_fair/features/screens/home/home_screen.dart';
+import 'package:may_fair/features/screens/chat_screen/chat_screen.dart';
+import 'package:may_fair/features/screens/home/cubit/home_cubit.dart';
+import 'package:may_fair/features/screens/home/ui/home_screen.dart';
 import 'package:may_fair/generated/l10n.dart';
 
 void main() async {
@@ -29,7 +32,7 @@ class MyApp extends StatelessWidget {
         splitScreenMode: true,
         builder: (context, child) {
           return MaterialApp(
-            locale: const Locale('en'),
+            locale: const Locale('ar'),
             localizationsDelegates: const [
               S.delegate,
               GlobalMaterialLocalizations.delegate,
@@ -41,7 +44,10 @@ class MyApp extends StatelessWidget {
             theme: appTheme(),
             initialRoute: isUserLogin! ? Routes.homeScreen : Routes.loginScreen,
             onGenerateRoute: AppRouter().generateRouter,
-            home: HomeScreen(),
+            home: BlocProvider(
+              create: (context) => HomeCubit(),
+              child: HomeScreen(),
+            ),
           );
         });
   }
