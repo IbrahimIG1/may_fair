@@ -48,7 +48,7 @@ Future showDialogWidget(BuildContext context) async {
             ),
           ),
           child: Text(
-            S.current.login,
+            S.current.new_driver,
             style: TextStyles.font14YellowMedium,
           ),
           onPressed: () {

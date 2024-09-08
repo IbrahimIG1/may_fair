@@ -230,6 +230,46 @@ class S {
     );
   }
 
+  /// `Drivers`
+  String get drivers {
+    return Intl.message(
+      'Drivers',
+      name: 'drivers',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Chats`
+  String get chats {
+    return Intl.message(
+      'Chats',
+      name: 'chats',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `menu`
+  String get menu {
+    return Intl.message(
+      'menu',
+      name: 'menu',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `users`
+  String get users {
+    return Intl.message(
+      'users',
+      name: 'users',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `customer`
   String get customer {
     return Intl.message(
@@ -255,6 +295,36 @@ class S {
     return Intl.message(
       'cancle',
       name: 'cancle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New Driver`
+  String get new_driver {
+    return Intl.message(
+      'New Driver',
+      name: 'new_driver',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Connected`
+  String get connected {
+    return Intl.message(
+      'Connected',
+      name: 'connected',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Not Connected`
+  String get dis_connected {
+    return Intl.message(
+      'Not Connected',
+      name: 'dis_connected',
       desc: '',
       args: [],
     );

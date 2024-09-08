@@ -23,12 +23,18 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "cancle": MessageLookupByLibrary.simpleMessage("الغاء"),
+        "chats": MessageLookupByLibrary.simpleMessage("المحادثات"),
+        "connected": MessageLookupByLibrary.simpleMessage("متصل"),
         "customer": MessageLookupByLibrary.simpleMessage("عميل"),
+        "dis_connected": MessageLookupByLibrary.simpleMessage("غير متصل"),
         "driver": MessageLookupByLibrary.simpleMessage("سائق"),
+        "drivers": MessageLookupByLibrary.simpleMessage("السائقين"),
         "email": MessageLookupByLibrary.simpleMessage("البريد الالكتروني"),
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "login_with_google": MessageLookupByLibrary.simpleMessage(
             "تسجيل الدخول باستخدام حساب جوجل"),
+        "menu": MessageLookupByLibrary.simpleMessage("القائمة"),
+        "new_driver": MessageLookupByLibrary.simpleMessage("سائق جديد"),
         "not_have_account":
             MessageLookupByLibrary.simpleMessage(" ليس لدي حساب ؟"),
         "or_login_with":
@@ -48,6 +54,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "type_your_message":
             MessageLookupByLibrary.simpleMessage("أكتب رسالتك هنا"),
         "user_name": MessageLookupByLibrary.simpleMessage("اسم المستخدم"),
+        "users": MessageLookupByLibrary.simpleMessage("المستخدمين"),
         "welcome": MessageLookupByLibrary.simpleMessage("مرحبا"),
         "welcome_login_text": MessageLookupByLibrary.simpleMessage(
             "اكتشف مغامرتك القادمة معنا! نحن هنا لتحقيق أحلام سفرك. لنستكشف العالم معًا!"),

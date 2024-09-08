@@ -23,12 +23,18 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "cancle": MessageLookupByLibrary.simpleMessage("cancle"),
+        "chats": MessageLookupByLibrary.simpleMessage("Chats"),
+        "connected": MessageLookupByLibrary.simpleMessage("Connected"),
         "customer": MessageLookupByLibrary.simpleMessage("customer"),
+        "dis_connected": MessageLookupByLibrary.simpleMessage("Not Connected"),
         "driver": MessageLookupByLibrary.simpleMessage("Driver"),
+        "drivers": MessageLookupByLibrary.simpleMessage("Drivers"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "login": MessageLookupByLibrary.simpleMessage("Sign In"),
         "login_with_google":
             MessageLookupByLibrary.simpleMessage("login with google account"),
+        "menu": MessageLookupByLibrary.simpleMessage("menu"),
+        "new_driver": MessageLookupByLibrary.simpleMessage("New Driver"),
         "not_have_account":
             MessageLookupByLibrary.simpleMessage("Don\'t have an account? "),
         "or_login_with":
@@ -48,6 +54,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "type_your_message":
             MessageLookupByLibrary.simpleMessage("Type Your Message"),
         "user_name": MessageLookupByLibrary.simpleMessage("user name"),
+        "users": MessageLookupByLibrary.simpleMessage("users"),
         "welcome": MessageLookupByLibrary.simpleMessage("welcome"),
         "welcome_login_text": MessageLookupByLibrary.simpleMessage(
             "Discover your next adventure with us! we\'re here to make your travel dreams come true. Let\'s explore the world together!"),

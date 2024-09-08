@@ -9,9 +9,8 @@ import 'package:may_fair/core/helper/shared_prefrence.dart';
 import 'package:may_fair/core/router/app_router.dart';
 import 'package:may_fair/core/router/routes.dart';
 import 'package:may_fair/core/theme/main_theme.dart';
-import 'package:may_fair/features/screens/chat_screen/chat_screen.dart';
-import 'package:may_fair/features/screens/home/cubit/home_cubit.dart';
-import 'package:may_fair/features/screens/home/ui/home_screen.dart';
+import 'package:may_fair/features/screens/admin_panal/cubit/admin_cubit.dart';
+import 'package:may_fair/features/screens/admin_panal/ui/admin_panal_screen.dart';
 import 'package:may_fair/generated/l10n.dart';
 
 void main() async {
@@ -32,7 +31,7 @@ class MyApp extends StatelessWidget {
         splitScreenMode: true,
         builder: (context, child) {
           return MaterialApp(
-            locale: const Locale('ar'),
+            locale: const Locale('en'),
             localizationsDelegates: const [
               S.delegate,
               GlobalMaterialLocalizations.delegate,
@@ -45,8 +44,8 @@ class MyApp extends StatelessWidget {
             initialRoute: isUserLogin! ? Routes.homeScreen : Routes.loginScreen,
             onGenerateRoute: AppRouter().generateRouter,
             home: BlocProvider(
-              create: (context) => HomeCubit(),
-              child: HomeScreen(),
+              create: (context) => AdminCubit(),
+              child: AdminScreen(),
             ),
           );
         });
