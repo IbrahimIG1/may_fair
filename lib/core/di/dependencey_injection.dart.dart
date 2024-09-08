@@ -4,10 +4,9 @@ import 'package:may_fair/core/network_services/auth_services.dart';
 import 'package:may_fair/core/network_services/firebase_services.dart';
 import 'package:may_fair/core/repos/Register_repo.dart';
 import 'package:may_fair/core/repos/login_repo.dart';
-import 'package:may_fair/features/screens/home/cubit/home_cubit.dart';
+import 'package:may_fair/features/screens/admin_panal/cubit/admin_cubit.dart';
 import 'package:may_fair/features/screens/login/cubit/login_cubit.dart';
 import 'package:may_fair/features/screens/register/cubit/register_cubit.dart';
-
 
 final getIt = GetIt.instance;
 Future<void> setUp() async {
@@ -26,7 +25,7 @@ Future<void> setUp() async {
 
   //* Network Services
   getIt.registerLazySingleton<AuthNetworkeServices>(
-      () => AuthNetworkServicesImpl(getIt(),getIt()));
+      () => AuthNetworkServicesImpl(getIt(), getIt()));
   //* Repo
   getIt.registerLazySingleton<LoginRepo>(() => LoginRepo(getIt()));
   getIt.registerLazySingleton<RegisterRepo>(() => RegisterRepo(getIt()));
@@ -34,5 +33,5 @@ Future<void> setUp() async {
   //* Cubits
   getIt.registerFactory<LoginCubit>(() => LoginCubit(getIt()));
   getIt.registerFactory<RegisterCubit>(() => RegisterCubit(getIt()));
-  getIt.registerFactory<HomeCubit>(() => HomeCubit());
+  getIt.registerFactory<AdminCubit>(() => AdminCubit());
 }
