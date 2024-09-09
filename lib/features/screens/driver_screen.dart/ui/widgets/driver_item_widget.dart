@@ -8,8 +8,12 @@ class DriverItemWidget extends StatelessWidget {
   final String name;
   final bool connect;
   final String image;
+  final Function onTap;
   const DriverItemWidget(
-      {super.key, required this.name, required this.connect, required this.image});
+      {super.key,
+      required this.name,
+      required this.connect,
+      required this.image, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -30,11 +34,10 @@ class DriverItemWidget extends StatelessWidget {
                 child: Container(
                   width: 60.w,
                   height: 60.h,
-                  decoration:  BoxDecoration(
+                  decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     image: DecorationImage(
-                        image: AssetImage(image),
-                        fit: BoxFit.fill),
+                        image: AssetImage(image), fit: BoxFit.fill),
                   ),
                 )),
             Text(
@@ -48,9 +51,14 @@ class DriverItemWidget extends StatelessWidget {
             horizontalSpace(10),
             Padding(
               padding: EdgeInsets.all(10.0),
-              child: CircleAvatar(
-                backgroundColor: connect == true ? Colors.green : Colors.red,
-                radius: 10,
+              child: InkWell(
+                onTap: () {
+                  onTap();
+                },
+                child: CircleAvatar(
+                  backgroundColor: connect == true ? Colors.green : Colors.red,
+                  radius: 10,
+                ),
               ),
             )
           ],
