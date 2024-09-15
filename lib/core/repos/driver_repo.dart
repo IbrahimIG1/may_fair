@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:may_fair/core/helper/firebase_error_handler.dart';
 import 'package:may_fair/core/network_services/cloud_firestore.dart';
+import 'package:may_fair/core/network_services/networking_result.dart';
 
 class DriverRepo {
   final CloudFirestoreServices _firebaseCloudServices;
@@ -10,12 +12,16 @@ class DriverRepo {
   String collection = "Drivers";
 
   // Method to add driver data
-  Future<void> addDriver(Map<String, dynamic> driverData) async {
+  Future<ApiResult<DocumentReference<Map<String, dynamic>>>> addDriver(
+      Map<String, dynamic> driverData) async {
     try {
-      await _firebaseCloudServices.addData(collection, driverData);
-      print("Driver added successfully");
-    } catch (e) {
-      print("Error adding driver: $e");
+      final response =
+          await _firebaseCloudServices.addData(collection, driverData);
+          
+      return ApiResult.success(response);
+    } catch (error) {
+      print("Error adding driver: $error");
+      return ApiResult.failure(ApiErrorHandler.handleException(error));
     }
   }
 
@@ -36,15 +42,30 @@ class DriverRepo {
       return null;
     }
   }
- // Method to get all drivers' data
-  Future<List<Map<String, dynamic>>> getAllDrivers() async {
+
+  // Method to get all drivers' data
+  Future<ApiResult<QuerySnapshot<Map<String, dynamic>>>> getAllDrivers() async {
     try {
-      List<Map<String, dynamic>> drivers = await _firebaseCloudServices.getAllData(collection);
-      print("All drivers retrieved successfully");
-      return drivers;
-    } catch (e) {
-      print("Error getting all drivers: $e");
-      return [];
+      QuerySnapshot<Map<String, dynamic>> drivers =
+          await _firebaseCloudServices.getAllData(collection);
+      return ApiResult.success(drivers);
+    } catch (error) {
+      print("Error getting all drivers: $error");
+      return ApiResult.failure(ApiErrorHandler.handleException(error));
+    }
+  }
+
+  Stream<ApiResult<QuerySnapshot<Map<String, dynamic>>>> streamGetAllDrivers() {
+    try {
+      Stream<QuerySnapshot<Map<String, dynamic>>> driversStream =
+          _firebaseCloudServices.getDataStream(collection);
+      return driversStream.map((querySnapshot) {
+        return ApiResult.success(querySnapshot);
+      });
+    } catch (error) {
+      print("Error getting all drivers: $error");
+      return Stream.value(
+          ApiResult.failure(ApiErrorHandler.handleException(error)));
     }
   }
 
@@ -53,7 +74,8 @@ class DriverRepo {
     try {
       List<Map<String, dynamic>> driversWithIds = [];
 
-      QuerySnapshot querySnapshot = await FirebaseFirestore.instance.collection(collection).get();
+      QuerySnapshot querySnapshot =
+          await FirebaseFirestore.instance.collection(collection).get();
       for (var doc in querySnapshot.docs) {
         driversWithIds.add({
           'id': doc.id,
@@ -68,11 +90,13 @@ class DriverRepo {
       return [];
     }
   }
+
   // Method to update driver data
   Future<void> updateDriver(
       String driverId, Map<String, dynamic> updatedData) async {
     try {
-      await _firebaseCloudServices.updateData(collection, driverId, updatedData);
+      await _firebaseCloudServices.updateData(
+          collection, driverId, updatedData);
       print("Driver updated successfully");
     } catch (e) {
       print("Error updating driver: $e");

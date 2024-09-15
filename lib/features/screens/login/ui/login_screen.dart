@@ -25,18 +25,20 @@ class LoginScreen extends StatelessWidget {
         body: BlocConsumer<LoginCubit, LoginState>(
       listener: (context, state) {
         if (state is ErrorStateLogin) {
+          // Show error message as a SnackBar
+
           ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
             ..showSnackBar(appSnackBar(
-                title: 'Error',
-                message: 'Error',
+                title: "Error ${state.apiErrorModel.code ?? ""}",
+                message: state.apiErrorModel.message!,
                 contentType: ContentType.failure));
         } else if (state is SuccessStateLogin) {
           ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
             ..showSnackBar(appSnackBar(
-                title: 'Success',
-                message: 'Login Success',
+                title: 'Welcom',
+                message: state.user.email!,
                 contentType: ContentType.success));
         }
       },
@@ -111,27 +113,26 @@ class LoginScreen extends StatelessWidget {
                               // print(userUId.toString());
                             }),
                         verticalSpace(20),
-                        if (loginCubit.isCustomer) const OrSignWithText(),
+                        const OrSignWithText(),
                         verticalSpace(20),
                         //* Login With Google Button
-                        if (loginCubit.isCustomer)
-                          AppTextButton(
-                              textStyle: TextStyles.font14MediumWhite,
-                              iconData: Icons.mail_outline,
-                              text: S.current.login_with_google,
-                              backgroundColor: Colors.red.withOpacity(0.9),
-                              onpressed: () {
-                                loginCubit.loginWithGoogle(context);
-                              }),
+                        // if (loginCubit.isCustomer)
+                        AppTextButton(
+                            textStyle: TextStyles.font14MediumWhite,
+                            iconData: Icons.mail_outline,
+                            text: S.current.login_with_google,
+                            backgroundColor: Colors.red.withOpacity(0.9),
+                            onpressed: () {
+                              loginCubit.loginWithGoogle(context);
+                            }),
 
                         verticalSpace(20),
-                        if (loginCubit.isCustomer)
-                          NotHaveAccount(
-                            onTap: () {
-                              context
-                                  .pushReplacementNamed(Routes.registerScreen);
-                            },
-                          )
+                        // if (loginCubit.isCustomer)
+                        NotHaveAccount(
+                          onTap: () {
+                            context.pushNamed(Routes.registerScreen);
+                          },
+                        )
                       ],
                     ),
                   ),

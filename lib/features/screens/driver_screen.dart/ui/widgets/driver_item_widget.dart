@@ -7,13 +7,12 @@ import 'package:may_fair/generated/l10n.dart';
 class DriverItemWidget extends StatelessWidget {
   final String name;
   final bool connect;
-  final String image;
   final Function onTap;
   const DriverItemWidget(
       {super.key,
       required this.name,
       required this.connect,
-      required this.image, required this.onTap});
+ required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +36,7 @@ class DriverItemWidget extends StatelessWidget {
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     image: DecorationImage(
-                        image: AssetImage(image), fit: BoxFit.fill),
+                        image:AssetImage('assets/images/car.png'), fit: BoxFit.fill),
                   ),
                 )),
             Text(

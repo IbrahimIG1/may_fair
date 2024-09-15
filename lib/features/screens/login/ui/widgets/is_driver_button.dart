@@ -9,18 +9,18 @@ class IsDriverButton extends StatelessWidget {
   final bool? clicked;
   final String txt;
   final Function onTap;
-  IsDriverButton({
-    Key? key,
+  const IsDriverButton({
+    super.key,
     this.clicked,
     required this.txt,
     required this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
-        onTap();
+       clicked == false ? onTap() : ();
       },
       style: ButtonStyle(
         minimumSize: WidgetStateProperty.all(Size.fromHeight(50.h)),

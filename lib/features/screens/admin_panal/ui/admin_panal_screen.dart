@@ -15,6 +15,7 @@ class AdminScreen extends StatelessWidget {
       listener: (context, state) {},
       builder: (context, state) {
         AdminCubit homeCubit = AdminCubit.get(context);
+        // DriverCubit driverCubit = DriverCubit.get(context);
         return Scaffold(
             backgroundColor: Colors.grey[100],
             appBar: AppBar(

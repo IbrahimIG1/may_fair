@@ -57,7 +57,6 @@ class RegisterFormFeild extends StatelessWidget {
                 return S.of(context).please_enter_email;
               }
             },
-            isObscure: isObcure,
           ),
           verticalSpace(15),
 

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:may_fair/core/constants/constants.dart';
@@ -9,8 +8,6 @@ import 'package:may_fair/core/helper/shared_prefrence.dart';
 import 'package:may_fair/core/router/app_router.dart';
 import 'package:may_fair/core/router/routes.dart';
 import 'package:may_fair/core/theme/main_theme.dart';
-import 'package:may_fair/features/screens/admin_panal/cubit/admin_cubit.dart';
-import 'package:may_fair/features/screens/admin_panal/ui/admin_panal_screen.dart';
 import 'package:may_fair/generated/l10n.dart';
 
 void main() async {
@@ -43,10 +40,7 @@ class MyApp extends StatelessWidget {
             theme: appTheme(),
             initialRoute: isUserLogin! ? Routes.homeScreen : Routes.loginScreen,
             onGenerateRoute: AppRouter().generateRouter,
-            home: BlocProvider(
-              create: (context) => AdminCubit(),
-              child: AdminScreen(),
-            ),
+            // home: AppRouter().generateRouter(Routes.loginScreen) as Wid
           );
         });
   }
@@ -55,7 +49,7 @@ class MyApp extends StatelessWidget {
 chekUserLogin() async {
   await SharedPrefImpl.initSharedPreference();
   SharedPrefImpl sharedPref = SharedPrefImpl();
-  userUId = sharedPref.getString('UserUID') ?? "";
+  userUId = await sharedPref.getSecureString('UserUID') ?? "";
 
   if (userUId.isNullOrEmpty()) {
     isUserLogin = false;
@@ -63,6 +57,7 @@ chekUserLogin() async {
     isUserLogin = true;
   }
 
-  print('userUId = $userUId');
-  print(sharedPref.getString('UserUID'));
+  print("userUId is >>>${'userUId = $userUId'}");
+  print("Get secured string is >>>>${sharedPref.getSecureString('UserUID')}");
+  print("Driver Is >>>${sharedPref.getBool('isDriver')}");
 }

@@ -30,11 +30,48 @@ class MessageLookup extends MessageLookupByLibrary {
         "driver": MessageLookupByLibrary.simpleMessage("سائق"),
         "drivers": MessageLookupByLibrary.simpleMessage("السائقين"),
         "email": MessageLookupByLibrary.simpleMessage("البريد الالكتروني"),
+        "error_already_exists":
+            MessageLookupByLibrary.simpleMessage("الوثيقة موجودة بالفعل."),
+        "error_cancelled":
+            MessageLookupByLibrary.simpleMessage("تم إلغاء العملية."),
+        "error_deadline_exceeded": MessageLookupByLibrary.simpleMessage(
+            "استغرقت العملية وقتًا طويلاً. يُرجى المحاولة مرة أخرى."),
+        "error_email_already_in_use": MessageLookupByLibrary.simpleMessage(
+            "الحساب موجود بالفعل لهذا البريد الإلكتروني."),
+        "error_failed_precondition": MessageLookupByLibrary.simpleMessage(
+            "The request could not be completed due to precondition failure."),
+        "error_google_sign_in_account": MessageLookupByLibrary.simpleMessage(
+            "تم إلغاء عملية تسجيل الدخول بواسطة المستخدم."),
+        "error_google_sign_in_authentication":
+            MessageLookupByLibrary.simpleMessage(
+                "فشل في التحقق من صحة حساب جوجل."),
+        "error_invalid_credential": MessageLookupByLibrary.simpleMessage(
+            "البريد الإلكتروني أو كلمة المرور غير صحيحة"),
+        "error_invalid_email":
+            MessageLookupByLibrary.simpleMessage("البريد الالكتروني غير صالح"),
+        "error_not_found": MessageLookupByLibrary.simpleMessage(
+            "لم يتم العثور على المورد المطلوب."),
+        "error_permission_denied": MessageLookupByLibrary.simpleMessage(
+            "ليس لديك الإذن للقيام بهذا الإجراء."),
+        "error_resource_exhausted": MessageLookupByLibrary.simpleMessage(
+            "لقد تم استنفاد الحصص أو الموارد الأخرى."),
+        "error_unavailable": MessageLookupByLibrary.simpleMessage(
+            "الخدمة غير متاحة حاليًا. حاول مرة أخرى لاحقًا."),
+        "error_unknown":
+            MessageLookupByLibrary.simpleMessage("حدث خطأ غير معروف."),
+        "error_user_disabled":
+            MessageLookupByLibrary.simpleMessage("تم تعطيل حساب المستخدم."),
+        "error_user_not_found": MessageLookupByLibrary.simpleMessage(
+            "لم يتم العثور على مستخدم لهذا البريد الإلكتروني"),
+        "error_wrong_password": MessageLookupByLibrary.simpleMessage(
+            "تم إدخال كلمة مرور خاطئة لهذا المستخدم."),
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "login_with_google": MessageLookupByLibrary.simpleMessage(
             "تسجيل الدخول باستخدام حساب جوجل"),
         "menu": MessageLookupByLibrary.simpleMessage("القائمة"),
         "new_driver": MessageLookupByLibrary.simpleMessage("سائق جديد"),
+        "no_drivers_yet":
+            MessageLookupByLibrary.simpleMessage("لا يوجد سائقين"),
         "not_have_account":
             MessageLookupByLibrary.simpleMessage(" ليس لدي حساب ؟"),
         "or_login_with":
@@ -49,6 +86,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "من فضلك ادخل رقم الهاتف بشكل صحيح"),
         "please_enter_user_name":
             MessageLookupByLibrary.simpleMessage("من فضلك ادخل اسم المستخدم"),
+        "quick_login": MessageLookupByLibrary.simpleMessage("تسجيل سريع"),
         "register": MessageLookupByLibrary.simpleMessage("تسجيل حساب"),
         "title": MessageLookupByLibrary.simpleMessage("شركة سياحة"),
         "type_your_message":

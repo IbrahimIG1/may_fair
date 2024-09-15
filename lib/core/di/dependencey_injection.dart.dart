@@ -34,7 +34,7 @@ Future<void> setUp() async {
       () => CloudFirestoreServicesImp(getIt()));
   //* Repo
   getIt.registerLazySingleton<LoginRepo>(() => LoginRepo(getIt()));
-  getIt.registerLazySingleton<RegisterRepo>(() => RegisterRepo(getIt()));
+  getIt.registerLazySingleton<RegisterRepo>(() => RegisterRepo(getIt(),getIt()));
   getIt.registerLazySingleton<DriverRepo>(() => DriverRepo(getIt()));
 
   //* Cubits

@@ -1,9 +1,12 @@
+
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 abstract class SharedPref {
   void setString(String key, dynamic value);
   String? getString(String key);
+   void setBool(String key, dynamic value);
+  bool? getBool(String key);
   void removeData(String key);
   void clearData();
   void setSecureString(String key, dynamic value);
@@ -56,6 +59,19 @@ class SharedPrefImpl implements SharedPref {
   @override
   String? getString(String key) {
     return _sharedprefrence!.getString(key) ?? '';
+  }
+
+  /// Save Bool value in SharedPreference with [key] , [value]
+  @override
+  void setBool(String key, dynamic value) {
+    print('>>>>>>>>>>>>>>>>>>>set String done');
+    _sharedprefrence!.setBool(key, value);
+  }
+
+  /// Get Bool value From SharedPreference with [key]
+  @override
+  bool? getBool(String key) {
+    return _sharedprefrence!.getBool(key);
   }
 
   /// Save String value in SharedPreference with [key] , [value]
