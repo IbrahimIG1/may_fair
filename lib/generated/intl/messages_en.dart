@@ -30,11 +30,48 @@ class MessageLookup extends MessageLookupByLibrary {
         "driver": MessageLookupByLibrary.simpleMessage("Driver"),
         "drivers": MessageLookupByLibrary.simpleMessage("Drivers"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "error_already_exists": MessageLookupByLibrary.simpleMessage(
+            "The document already exists."),
+        "error_cancelled": MessageLookupByLibrary.simpleMessage(
+            "The operation was cancelled."),
+        "error_deadline_exceeded": MessageLookupByLibrary.simpleMessage(
+            "The operation took too long. Please try again."),
+        "error_email_already_in_use": MessageLookupByLibrary.simpleMessage(
+            "The account already exists for that email."),
+        "error_failed_precondition": MessageLookupByLibrary.simpleMessage(
+            "The request could not be completed due to precondition failure."),
+        "error_google_sign_in_account": MessageLookupByLibrary.simpleMessage(
+            "Sign-in process was aborted by the user."),
+        "error_google_sign_in_authentication":
+            MessageLookupByLibrary.simpleMessage(
+                "Failed to authenticate Google account."),
+        "error_invalid_credential": MessageLookupByLibrary.simpleMessage(
+            "Email Or Password is not correct"),
+        "error_invalid_email": MessageLookupByLibrary.simpleMessage(
+            "The email address is badly formatted."),
+        "error_not_found": MessageLookupByLibrary.simpleMessage(
+            "The requested resource was not found."),
+        "error_permission_denied": MessageLookupByLibrary.simpleMessage(
+            "You do not have permission to perform this action."),
+        "error_resource_exhausted": MessageLookupByLibrary.simpleMessage(
+            "Quota or other resources have been exhausted."),
+        "error_unavailable": MessageLookupByLibrary.simpleMessage(
+            "The service is currently unavailable. Try again later."),
+        "error_unknown":
+            MessageLookupByLibrary.simpleMessage("An unknown error occurred."),
+        "error_user_disabled": MessageLookupByLibrary.simpleMessage(
+            "The user account has been disabled."),
+        "error_user_not_found": MessageLookupByLibrary.simpleMessage(
+            "No user found for that email"),
+        "error_wrong_password": MessageLookupByLibrary.simpleMessage(
+            "Wrong password provided for that user."),
         "login": MessageLookupByLibrary.simpleMessage("Sign In"),
         "login_with_google":
             MessageLookupByLibrary.simpleMessage("login with google account"),
         "menu": MessageLookupByLibrary.simpleMessage("menu"),
         "new_driver": MessageLookupByLibrary.simpleMessage("New Driver"),
+        "no_drivers_yet":
+            MessageLookupByLibrary.simpleMessage("no drivers yet"),
         "not_have_account":
             MessageLookupByLibrary.simpleMessage("Don\'t have an account? "),
         "or_login_with":
@@ -49,6 +86,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("please enter a valid phone"),
         "please_enter_user_name":
             MessageLookupByLibrary.simpleMessage("please enter the user name"),
+        "quick_login": MessageLookupByLibrary.simpleMessage("Quick Sign In"),
         "register": MessageLookupByLibrary.simpleMessage("Sign Up"),
         "title": MessageLookupByLibrary.simpleMessage("MayFairll Companey"),
         "type_your_message":

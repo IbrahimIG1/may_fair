@@ -80,6 +80,16 @@ class S {
     );
   }
 
+  /// `Quick Sign In`
+  String get quick_login {
+    return Intl.message(
+      'Quick Sign In',
+      name: 'quick_login',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Or Sign in with`
   String get or_login_with {
     return Intl.message(
@@ -325,6 +335,186 @@ class S {
     return Intl.message(
       'Not Connected',
       name: 'dis_connected',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `no drivers yet`
+  String get no_drivers_yet {
+    return Intl.message(
+      'no drivers yet',
+      name: 'no_drivers_yet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The email address is badly formatted.`
+  String get error_invalid_email {
+    return Intl.message(
+      'The email address is badly formatted.',
+      name: 'error_invalid_email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The user account has been disabled.`
+  String get error_user_disabled {
+    return Intl.message(
+      'The user account has been disabled.',
+      name: 'error_user_disabled',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No user found for that email`
+  String get error_user_not_found {
+    return Intl.message(
+      'No user found for that email',
+      name: 'error_user_not_found',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Wrong password provided for that user.`
+  String get error_wrong_password {
+    return Intl.message(
+      'Wrong password provided for that user.',
+      name: 'error_wrong_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The account already exists for that email.`
+  String get error_email_already_in_use {
+    return Intl.message(
+      'The account already exists for that email.',
+      name: 'error_email_already_in_use',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email Or Password is not correct`
+  String get error_invalid_credential {
+    return Intl.message(
+      'Email Or Password is not correct',
+      name: 'error_invalid_credential',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `An unknown error occurred.`
+  String get error_unknown {
+    return Intl.message(
+      'An unknown error occurred.',
+      name: 'error_unknown',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign-in process was aborted by the user.`
+  String get error_google_sign_in_account {
+    return Intl.message(
+      'Sign-in process was aborted by the user.',
+      name: 'error_google_sign_in_account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Failed to authenticate Google account.`
+  String get error_google_sign_in_authentication {
+    return Intl.message(
+      'Failed to authenticate Google account.',
+      name: 'error_google_sign_in_authentication',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You do not have permission to perform this action.`
+  String get error_permission_denied {
+    return Intl.message(
+      'You do not have permission to perform this action.',
+      name: 'error_permission_denied',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The service is currently unavailable. Try again later.`
+  String get error_unavailable {
+    return Intl.message(
+      'The service is currently unavailable. Try again later.',
+      name: 'error_unavailable',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The requested resource was not found.`
+  String get error_not_found {
+    return Intl.message(
+      'The requested resource was not found.',
+      name: 'error_not_found',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The document already exists.`
+  String get error_already_exists {
+    return Intl.message(
+      'The document already exists.',
+      name: 'error_already_exists',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The operation was cancelled.`
+  String get error_cancelled {
+    return Intl.message(
+      'The operation was cancelled.',
+      name: 'error_cancelled',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The operation took too long. Please try again.`
+  String get error_deadline_exceeded {
+    return Intl.message(
+      'The operation took too long. Please try again.',
+      name: 'error_deadline_exceeded',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Quota or other resources have been exhausted.`
+  String get error_resource_exhausted {
+    return Intl.message(
+      'Quota or other resources have been exhausted.',
+      name: 'error_resource_exhausted',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The request could not be completed due to precondition failure.`
+  String get error_failed_precondition {
+    return Intl.message(
+      'The request could not be completed due to precondition failure.',
+      name: 'error_failed_precondition',
       desc: '',
       args: [],
     );

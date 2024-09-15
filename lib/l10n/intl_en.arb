@@ -2,6 +2,7 @@
     "title": "MayFairll Companey",
     "register": "Sign Up",
     "login": "Sign In",
+    "quick_login": "Quick Sign In",
     "or_login_with": "Or Sign in with",
     "login_with_google": "login with google account",
     "not_have_account": "Don't have an account? ",
@@ -26,5 +27,24 @@
     "cancle" : "cancle",
     "new_driver" : "New Driver",
     "connected" : "Connected",
-    "dis_connected" : "Not Connected"
+    "dis_connected" : "Not Connected",
+    "no_drivers_yet" :"no drivers yet",
+    "error_invalid_email":"The email address is badly formatted.",
+    "error_user_disabled":"The user account has been disabled.",
+    "error_user_not_found":"No user found for that email",
+    "error_wrong_password":"Wrong password provided for that user.",
+    "error_email_already_in_use":"The account already exists for that email.",
+    "error_invalid_credential":"Email Or Password is not correct",
+    "error_unknown":"An unknown error occurred.",
+    "error_google_sign_in_account":"Sign-in process was aborted by the user.",
+    "error_google_sign_in_authentication":"Failed to authenticate Google account.",
+    "error_permission_denied":"You do not have permission to perform this action.",
+    "error_unavailable":"The service is currently unavailable. Try again later.",
+    "error_not_found":"The requested resource was not found.",
+    "error_already_exists":"The document already exists.",
+    "error_cancelled":"The operation was cancelled.",
+    "error_deadline_exceeded":"The operation took too long. Please try again.",
+    "error_resource_exhausted":"Quota or other resources have been exhausted.",
+    "error_failed_precondition":"The request could not be completed due to precondition failure."
+   
 }

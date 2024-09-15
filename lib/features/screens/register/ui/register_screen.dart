@@ -49,7 +49,7 @@ class RegisterScreen extends StatelessWidget {
                         Container(
                           height: 100.h,
                           width: 100.w,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                               shape: BoxShape.circle,
                               image: DecorationImage(
                                   image:
@@ -74,7 +74,9 @@ class RegisterScreen extends StatelessWidget {
                             nameController: registerCubit.nameController,
                             passwordController:
                                 registerCubit.passwordController,
-                            iconPress: () {},
+                            iconPress: () {
+                              registerCubit.passwordVisibility();
+                            },
                             phoneController: registerCubit.phoneController,
                             mailController: registerCubit.mailController),
                         verticalSpace(20),
@@ -85,21 +87,22 @@ class RegisterScreen extends StatelessWidget {
                             onpressed: () {
                               if (registerCubit.formKey.currentState!
                                   .validate()) {
-                                registerCubit.registerWithEmailAndPassword(context: context);
+                                registerCubit.registerWithEmailAndPassword(
+                                    context: context);
                               }
                               // print(isUserLogin.toString());
                               // print(userUId.toString());
                             }),
-                        verticalSpace(20),
-                        //* Login With Google Button
-                        AppTextButton(
-                            textStyle: TextStyles.font14MediumWhite,
-                            iconData: Icons.mail_outline,
-                            text: S.current.login_with_google,
-                            backgroundColor: Colors.red.withOpacity(0.9),
-                            onpressed: () {
-                              registerCubit.registerWithGoogle(context:context);
-                            }),
+                        // verticalSpace(20),
+                        // //* Login With Google Button
+                        // AppTextButton(
+                        //     textStyle: TextStyles.font14MediumWhite,
+                        //     iconData: Icons.mail_outline,
+                        //     text: S.current.login_with_google,
+                        //     backgroundColor: Colors.red.withOpacity(0.9),
+                        //     onpressed: () {
+                        //       registerCubit.registerWithGoogle(context:context);
+                        //     }),
                       ],
                     ),
                   ),

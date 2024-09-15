@@ -14,3 +14,12 @@ extension Navigation on BuildContext {
 extension StringExtension on String? {
   bool isNullOrEmpty() => this == null || this == "";
 }
+extension MapExtentions on Map? 
+{
+  bool isNullOrEmpty() => this == null || this == {};
+}
+
+extension ListExtentions on List? 
+{
+  bool isNullOrEmpty() => this == null || this == [];
+}

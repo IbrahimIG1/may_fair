@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:may_fair/core/constants/constants.dart';
+import 'package:may_fair/core/helper/extensions.dart';
+import 'package:may_fair/core/helper/shared_prefrence.dart';
+import 'package:may_fair/core/models/user_model.dart';
+import 'package:may_fair/core/network_services/cloud_firestore.dart';
+import 'package:may_fair/core/network_services/firebase_services.dart';
 import 'package:may_fair/core/repos/login_repo.dart';
+import 'package:may_fair/core/router/routes.dart';
 import 'package:may_fair/features/screens/login/cubit/login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
@@ -21,31 +28,54 @@ class LoginCubit extends Cubit<LoginState> {
 
   final formKey = GlobalKey<FormState>();
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
+  //* Login with Email and Password
   Future<void> login({required BuildContext context}) async {
     emit(LoadingStateLogin());
-    loginRepo
-        .login(
-            email: emailController.text,
-            password: passwordController.text,
-            context: context)
-        .then((value) {
-      emit(SuccessStateLogin());
-    }).catchError((error) {
-      emit(ErrorStateLogin());
+    final response = await loginRepo.login(
+        email: emailController.text,
+        password: passwordController.text,
+        context: context);
+    response.when(success: (user) {
+      print(user.uid);
+      print(user);
+      SharedPrefImpl().setSecureString('UserUID', user.uid);
+      SharedPrefImpl().setBool('isDriver', isDriver);
+      context.pushReplacementNamed(Routes.homeScreen);
+      emit(SuccessStateLogin(user));
+    }, failure: (apiErrorModel) {
+      emit(ErrorStateLogin(apiErrorModel));
     });
   }
- 
 
+  
+  late UserModel userModel;
+
+//* Login with google account
   void loginWithGoogle(BuildContext context) async {
-    emit(LoadingStateLogin());
-    try {
-      await loginRepo.loginWithGoolge(context).then((value) {
-        emit(SuccessStateLogin());
-      });
-    } on Exception catch (e) {
-      SnackBar(content: Text('Error in Login with google method $e'));
-      emit(ErrorStateLogin());
-    }
+    String collectionResult = UserType == UserEnum.customer ? "Users" : "Drivers";
+    print(collectionResult);
+    emit(LoadingWithGoolgeStateLogin());
+    final response =
+        await loginRepo.loginWithGoolge(collection: collectionResult);
+    response.when(success: (user) async {
+      context.pushReplacementNamed(Routes.homeScreen);
+      userModel = UserModel(
+          email: user.email ?? "Email not found",
+          status: true,
+          name: user.displayName ?? "",
+          phone: user.phoneNumber ?? "");
+
+      SharedPrefImpl().setSecureString('UserUID', user.uid);
+      SharedPrefImpl().setBool('isDriver', isDriver);
+
+      FirebaseFactory firebaseFactory = FirebaseFactoryImpl();
+      CloudFirestoreServicesImp(firebaseFactory)
+          .addData(collectionResult, userModel.toMap());
+      emit(SuccessStateLogin(user));
+    }, failure: (apiErrorModel) {
+      emit(ErrorStateLogin(apiErrorModel));
+    });
   }
 
   void passwordVisibility() {
@@ -57,9 +87,12 @@ class LoginCubit extends Cubit<LoginState> {
     isDriver = !isDriver;
     isCustomer = !isCustomer;
     if (isCustomer) {
-      googleSignInButtonOpacity = 1;
+      UserType = UserEnum.customer;
+      print(UserType);
     } else {
-      googleSignInButtonOpacity = 0;
+      // googleSignInButtonOpacity = 0;
+      UserType = UserEnum.driver;
+      print(UserType);
     }
     emit(ChangeBrderColorStateLogin());
   }

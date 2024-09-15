@@ -2,6 +2,7 @@
     "title": "شركة سياحة",
     "register": "تسجيل حساب",
     "login": "تسجيل الدخول",
+    "quick_login": "تسجيل سريع",
     "or_login_with": "أو سجل الدخول باستخدام",
     "login_with_google": "تسجيل الدخول باستخدام حساب جوجل",
     "not_have_account": " ليس لدي حساب ؟",
@@ -26,7 +27,26 @@
     "cancle" : "الغاء",
     "new_driver" : "سائق جديد",
     "connected" : "متصل",
-    "dis_connected" : "غير متصل"
+    "dis_connected" : "غير متصل",
+    "no_drivers_yet" :"لا يوجد سائقين",
+    "error_invalid_email":"البريد الالكتروني غير صالح",
+    "error_user_disabled":"تم تعطيل حساب المستخدم.",
+    "error_user_not_found":"لم يتم العثور على مستخدم لهذا البريد الإلكتروني",
+    "error_wrong_password":"تم إدخال كلمة مرور خاطئة لهذا المستخدم.",
+    "error_email_already_in_use":"الحساب موجود بالفعل لهذا البريد الإلكتروني.",
+    "error_invalid_credential":"البريد الإلكتروني أو كلمة المرور غير صحيحة",
+    "error_unknown":"حدث خطأ غير معروف.",
+    "error_google_sign_in_account":"تم إلغاء عملية تسجيل الدخول بواسطة المستخدم.",
+    "error_google_sign_in_authentication":"فشل في التحقق من صحة حساب جوجل.",
+    "error_permission_denied":"ليس لديك الإذن للقيام بهذا الإجراء.",
+    "error_unavailable":"الخدمة غير متاحة حاليًا. حاول مرة أخرى لاحقًا.",
+    "error_not_found":"لم يتم العثور على المورد المطلوب.",
+    "error_already_exists":"الوثيقة موجودة بالفعل.",
+    "error_cancelled":"تم إلغاء العملية.",
+    "error_deadline_exceeded":"استغرقت العملية وقتًا طويلاً. يُرجى المحاولة مرة أخرى.",
+    "error_resource_exhausted":"لقد تم استنفاد الحصص أو الموارد الأخرى.",
+    "error_failed_precondition":"لم يتمكن من إكمال الطلب بسبب فشل الشرط المسبق."
+
 
 
 }
