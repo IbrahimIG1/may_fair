@@ -12,11 +12,11 @@ class DriverRepo {
   String collection = "Drivers";
 
   // Method to add driver data
-  Future<ApiResult<DocumentReference<Map<String, dynamic>>>> addDriver(
-      Map<String, dynamic> driverData) async {
+  Future<ApiResult<void>> addDriver(
+      Map<String, dynamic> driverData,String docUid) async {
     try {
       final response =
-          await _firebaseCloudServices.addData(collection, driverData);
+          await _firebaseCloudServices.addData(collection, driverData,docUid);
           
       return ApiResult.success(response);
     } catch (error) {

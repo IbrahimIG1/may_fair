@@ -71,7 +71,7 @@ class LoginCubit extends Cubit<LoginState> {
 
       FirebaseFactory firebaseFactory = FirebaseFactoryImpl();
       CloudFirestoreServicesImp(firebaseFactory)
-          .addData(collectionResult, userModel.toMap());
+          .addData(collectionResult, userModel.toMap(),user.uid);
       emit(SuccessStateLogin(user));
     }, failure: (apiErrorModel) {
       emit(ErrorStateLogin(apiErrorModel));

@@ -1,4 +1,5 @@
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -59,8 +60,9 @@ class LoginScreen extends StatelessWidget {
                           decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               image: DecorationImage(
-                                  image:
-                                      NetworkImage('assets/images/logo.png'))),
+                                  image: kIsWeb
+                                      ? NetworkImage('assets/images/logo.png')
+                                      : AssetImage('assets/images/logo.png'))),
                         ),
                         verticalSpace(20),
                         Text(

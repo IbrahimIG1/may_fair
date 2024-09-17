@@ -25,6 +25,7 @@ class RegisterRepo {
   Future<ApiResult<User>> register(
       {required UserModel userModel,
       required String password,
+      
       required String collection}) async {
     try {
       UserCredential userCredential =
@@ -32,7 +33,7 @@ class RegisterRepo {
         password: password,
         email: userModel.email,
       );
-      cloudFirestoreServices.addData(collection, userModel.toMap());
+      // cloudFirestoreServices.addData(collection, userModel.toMap(),docUid);
       return ApiResult.success(userCredential.user!);
     } catch (error) {
       return ApiResult.failure(ApiErrorHandler.handleException(error));

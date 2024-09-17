@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:may_fair/core/network_services/firebase_services.dart';
 
 abstract class CloudFirestoreServices {
- Future<DocumentReference<Map<String, dynamic>>> addData(String collection, Map<String, dynamic> data);
+ Future<void> addData(String collection, Map<String, dynamic> data,String docUid);
   Future<QuerySnapshot<Map<String, dynamic>>> getAllData(String collection);
   Stream<QuerySnapshot<Map<String, dynamic>>> getDataStream(String collection);
   Future<Map<String, dynamic>?> getDataById(String collection, String docId);
@@ -18,9 +18,9 @@ class CloudFirestoreServicesImp implements CloudFirestoreServices {
 
   /// Method to add data to a Firestore collection
   @override
-  Future<DocumentReference<Map<String, dynamic>>> addData(String collection, Map<String, dynamic> data) async {
+  Future<void> addData(String collection, Map<String, dynamic> data,String docUid) async {
     FirebaseFirestore firestore = firebaseFactory.getFirebaseFirestore();
-    return await firestore.collection(collection).add(data);
+    return await firestore.collection(collection).doc(docUid).set(data);
   }
 
   /// Method to get all documents from a Firestore collection

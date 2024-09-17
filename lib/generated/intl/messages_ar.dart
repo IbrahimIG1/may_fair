@@ -39,7 +39,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "error_email_already_in_use": MessageLookupByLibrary.simpleMessage(
             "الحساب موجود بالفعل لهذا البريد الإلكتروني."),
         "error_failed_precondition": MessageLookupByLibrary.simpleMessage(
-            "The request could not be completed due to precondition failure."),
+            "لم يتمكن من إكمال الطلب بسبب فشل الشرط المسبق."),
         "error_google_sign_in_account": MessageLookupByLibrary.simpleMessage(
             "تم إلغاء عملية تسجيل الدخول بواسطة المستخدم."),
         "error_google_sign_in_authentication":
