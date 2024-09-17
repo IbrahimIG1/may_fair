@@ -1,4 +1,5 @@
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -24,14 +25,14 @@ class RegisterScreen extends StatelessWidget {
             ..hideCurrentSnackBar()
             ..showSnackBar(appSnackBar(
                 title: 'Error',
-                message: 'Error',
+                message: state.apiErrorModel.message!,
                 contentType: ContentType.failure));
         } else if (state is SuccessStateRegister) {
           ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
             ..showSnackBar(appSnackBar(
-                title: 'Success',
-                message: 'Login Success',
+                title: 'Hello',
+                message: state.user.displayName ??state.user.email!,
                 contentType: ContentType.success));
         }
       },
@@ -52,8 +53,9 @@ class RegisterScreen extends StatelessWidget {
                           decoration: const BoxDecoration(
                               shape: BoxShape.circle,
                               image: DecorationImage(
-                                  image:
-                                      NetworkImage('assets/images/logo.png'))),
+                                  image: kIsWeb
+                                      ? NetworkImage('assets/images/logo.png')
+                                      : AssetImage('assets/images/logo.png'))),
                         ),
                         verticalSpace(20),
                         Text(

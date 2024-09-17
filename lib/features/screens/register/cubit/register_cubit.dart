@@ -26,7 +26,8 @@ class RegisterCubit extends Cubit<RegisterState> {
 
 //* Register with Email and password
   void registerWithEmailAndPassword({required BuildContext context}) async {
-  String collectionResult = UserType == UserEnum.customer ? "Users" : "Drivers";
+    String collectionResult =
+        UserType == UserEnum.customer ? "Users" : "Drivers";
 
     emit(LoadingStateRegister());
     userModel = UserModel(
@@ -44,7 +45,10 @@ class RegisterCubit extends Cubit<RegisterState> {
       String collection = collectionResult;
       FirebaseFactory firebaseFactory = FirebaseFactoryImpl();
       CloudFirestoreServicesImp(firebaseFactory)
-          .addData(collection, userModel.toMap());
+          .addData(collection, userModel.toMap(), user.uid);
+      SharedPrefImpl().setSecureString('UserUID', user.uid);
+      SharedPrefImpl()
+          .setBool('isDriver', UserType == UserEnum.customer ? false : true);
       context.pushReplacementNamed(Routes.homeScreen);
       emit(SuccessStateRegister(user));
     }, failure: (error) {
@@ -54,7 +58,8 @@ class RegisterCubit extends Cubit<RegisterState> {
 
 //* Register with google account
   void registerWithGoogle({required BuildContext context}) async {
-  String collectionResult = UserType == UserEnum.customer ? "Users" : "Drivers";
+    String collectionResult =
+        UserType == UserEnum.customer ? "Users" : "Drivers";
 
     emit(LoadingWIthGoogleStateRegister());
     final response = await registerRepo.registerWithGoolge(context);
@@ -68,7 +73,7 @@ class RegisterCubit extends Cubit<RegisterState> {
       String collection = collectionResult;
       FirebaseFactory firebaseFactory = FirebaseFactoryImpl();
       CloudFirestoreServicesImp(firebaseFactory)
-          .addData(collection, userModel.toMap());
+          .addData(collection, userModel.toMap(), user.uid);
       context.pushReplacementNamed(Routes.homeScreen);
 
       emit(SuccessStateRegister(user));

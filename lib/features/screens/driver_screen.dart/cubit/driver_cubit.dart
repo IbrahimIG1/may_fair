@@ -8,7 +8,7 @@ class DriverCubit extends Cubit<DriverState> {
   DriverCubit(this.driverRepo) : super(DriverInitial());
   static DriverCubit get(context) => BlocProvider.of(context);
 
-  void addDriver({required UserModel driverModel}) {
+  void addDriver({required UserModel driverModel,required String docUid}) {
     emit(LoadingDriversState());
     // DriverModel driverModel = DriverModel(
     //     name: 'driver 1',
@@ -17,7 +17,7 @@ class DriverCubit extends Cubit<DriverState> {
     //     phone: '01021861291',
     //     status: true,
     //     email: 'driver@gmail.com');
-    driverRepo.addDriver(driverModel.toMap()).then((value) {
+    driverRepo.addDriver(driverModel.toMap(),docUid).then((value) {
       emit(AddDriverState());
     });
   }

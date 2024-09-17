@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
             supportedLocales: S.delegate.supportedLocales,
             title: 'Flutter Demo',
             theme: appTheme(),
-            initialRoute: isUserLogin! ? Routes.homeScreen : Routes.loginScreen,
+            initialRoute: isUserLogin! ? Routes.chatScreen : Routes.loginScreen,
             onGenerateRoute: AppRouter().generateRouter,
             // home: AppRouter().generateRouter(Routes.loginScreen) as Wid
           );

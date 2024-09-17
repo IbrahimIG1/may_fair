@@ -1,8 +1,13 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:may_fair/core/helper/extensions.dart';
 import 'package:may_fair/core/helper/spacer_helper.dart';
 import 'package:may_fair/core/theme/text_styles.dart';
 import 'package:may_fair/core/widgets/app_text_feild.dart';
+import 'package:may_fair/features/screens/chat_screen/cubit/chat_cubit.dart';
+import 'package:may_fair/features/screens/chat_screen/cubit/chat_state.dart';
 import 'package:may_fair/generated/l10n.dart';
 
 class ChatScreen extends StatelessWidget {
@@ -10,26 +15,45 @@ class ChatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          S.current.driver,
-          style: TextStyles.font14MediumWhite,
-        ),
-        backgroundColor: Colors.teal,
-      ),
-      body: ChatBody(),
-      bottomNavigationBar: ChatInputField(),
+    return BlocConsumer<ChatCubit, ChatState>(
+      listener: (context, state) {
+        // TODO: implement listener
+      },
+      builder: (context, state) {
+        ChatCubit chatCubit = ChatCubit.get(context);
+        return Scaffold(
+          appBar: AppBar(
+            title: Text(
+              S.current.driver,
+              style: TextStyles.font14MediumWhite,
+            ),
+            backgroundColor: Colors.teal,
+          ),
+          body: ChatBody(),
+          bottomNavigationBar: ChatInputField(
+              controller: chatCubit.messageController,
+              sendMessage: () {
+                if (!chatCubit.messageController.text.isNullOrEmpty()) {
+                  chatCubit.sendMessage(
+                      recieveId: 'zXqxGnr1n8Ooec9Vk75tOkNjtUy2');
+                } else {
+                  print("empty message");
+                }
+              }),
+        );
+      },
     );
   }
 }
 
 class ChatBody extends StatelessWidget {
+  const ChatBody({super.key});
+
   @override
   Widget build(BuildContext context) {
     return ListView(
-      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-      children: [
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+      children: const [
         ChatBubble(
           text: "Hello!",
           isSender: false,
@@ -98,6 +122,8 @@ class ChatBubble extends StatelessWidget {
                 fontSize: 12,
               ),
             ),
+            // Spacer(),
+            // ChatInputField(),
           ],
         ),
       ),
@@ -106,8 +132,10 @@ class ChatBubble extends StatelessWidget {
 }
 
 class ChatInputField extends StatelessWidget {
-  const ChatInputField({super.key});
-
+  const ChatInputField(
+      {super.key, required this.sendMessage, required this.controller});
+  final VoidCallback sendMessage;
+  final TextEditingController controller;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -126,10 +154,15 @@ class ChatInputField extends StatelessWidget {
         children: [
           Expanded(
               child: AppTextFormFeild(
+                  controller: controller,
                   hintText: S.current.type_your_message,
                   validator: (value) {})),
           horizontalSpace(15),
-          Icon(Icons.send, color: Colors.teal),
+          IconButton(
+              onPressed: () {
+                sendMessage();
+              },
+              icon: const Icon(Icons.send, color: Colors.teal)),
         ],
       ),
     );

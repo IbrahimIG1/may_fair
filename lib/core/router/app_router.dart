@@ -5,6 +5,7 @@ import 'package:may_fair/core/router/routes.dart';
 import 'package:may_fair/features/screens/admin_panal/cubit/admin_cubit.dart';
 import 'package:may_fair/features/screens/chat_screen/chat_screen.dart';
 import 'package:may_fair/features/screens/admin_panal/ui/admin_panal_screen.dart';
+import 'package:may_fair/features/screens/chat_screen/cubit/chat_cubit.dart';
 import 'package:may_fair/features/screens/login/cubit/login_cubit.dart';
 import 'package:may_fair/features/screens/login/ui/login_screen.dart';
 import 'package:may_fair/features/screens/register/cubit/register_cubit.dart';
@@ -22,10 +23,13 @@ class AppRouter {
             child: AdminScreen(),
           ),
         );
-      //* home
+      //* chatScreen
       case Routes.chatScreen:
         return MaterialPageRoute(
-          builder: (context) => ChatScreen(),
+          builder: (context) => BlocProvider(
+            create: (context) => getIt<ChatCubit>(),
+            child: const ChatScreen(),
+          ),
         );
 
       //* login
